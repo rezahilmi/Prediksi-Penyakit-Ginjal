@@ -14,7 +14,7 @@ Tabs = {
 # Sidebar navigation
 with st.sidebar:
     selected = option_menu("Navigasi", ["Home", "Prediksi", "Visualisasi"],
-                           icons=["house", "gear", "diagram-3"], menu_icon="cast", default_index=0)
+                           icons=["house", "robot", "diagram-3"], menu_icon="cast", default_index=0)
 
 
 # Load dataset
