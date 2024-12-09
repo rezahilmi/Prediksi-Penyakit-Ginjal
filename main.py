@@ -2,24 +2,26 @@ import streamlit as st
 from web_functions import load_data
 
 from Tabs import home, predict, visualise
+from streamlit_option_menu import option_menu
 
+# Define Tabs mapping
 Tabs = {
     "Home": home,
-    "Prediction": predict,
-    "Visualisation": visualise
+    "Prediksi": predict,
+    "Visualisasi": visualise
 }
 
-# sidebar
-st.sidebar.title("Navigasi")
+# Sidebar navigation
+with st.sidebar:
+    selected = option_menu("Navigasi", ["Home", "Prediksi", "Visualisasi"],
+                           icons=["house", "gear", "diagram-3"], menu_icon="cast", default_index=0)
 
-# radio option
-page = st.sidebar.radio("pages", list(Tabs.keys()))
 
-# load dataset
+# Load dataset
 df, x, y = load_data()
 
-# kondisi call ap function
-if page in ["Prediction", "Visualisation"]:
-    Tabs[page].app(df, x, y)
+# Conditional rendering based on selected tab
+if selected in ["Prediksi", "Visualisasi"]:
+    Tabs[selected].app(df, x, y)
 else:
-    Tabs[page].app()
+    Tabs[selected].app()
