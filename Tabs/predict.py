@@ -67,9 +67,10 @@ def app(df, x, y):
 
         if (prediction == 1):
             st.warning(
-                "Pasien memiliki risiko tinggi untuk mengalami penyakit ginjal")
+                "Pasien relatif aman dari penyakit ginjal")
         else:
-            st.success("Pasien relatif aman dari penyakit ginjal")
+            st.success(
+                "Pasien memiliki risiko tinggi untuk mengalami penyakit ginjal")
 
         st.write("Model yang digunakan memiliki tingkat akurasi ",
                  (score*100), "%")
